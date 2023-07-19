@@ -1,3 +1,10 @@
+const btns = document.querySelectorAll(".btns");
+const cScore = document.querySelector(".C-score");
+const pScore = document.querySelector(".P-score");
+
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
   let choice = ["Rock", "Paper", "Scissors"];
   return choice[Math.floor(Math.random() * choice.length)];
@@ -6,32 +13,38 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return "its a draw";
   } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-    playerScore++;
+    pScore.innerText = playerScore += 1;
     return "You have won! Rock beats Scissors";
   } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-    playerScore++;
+    pScore.innerText = playerScore += 1;
     return "You have won! Scissors beats Paper";
   } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-    playerScore++;
+    pScore.innerText = playerScore += 1;
     return "You have won! Paper beats Rock";
   } else if (playerSelection === "Rock" && computerSelection === "Paper") {
-    computerScore++;
+    cScore.innerText = computerScore += 1;
     return "You have lost! Paper beats Rock";
   } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-    computerScore++;
+    cScore.innerText = computerScore += 1;
     return "You have lost! Scissors beats Paper";
   } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-    computerScore++;
+    cScore.innerText = computerScore += 1;
     return "You have lost! Rock beats Scissors";
   }
 }
-let playerScore = 0;
-let computerScore = 0;
 
-for (let i = 1; i <= 5; i++) {
-  let computerSelection = getComputerChoice();
-  let playerSelection = prompt("Choose your weapon");
-  console.log(playRound(playerSelection, computerSelection));
-  console.log(playerScore)
-  console.log(computerScore)
-} 
+function Score() {
+  if (playerScore === 5 || computerScore === 5) {
+  }
+}
+
+btns.forEach((btn) =>
+  btn.addEventListener("click", (choice) => {
+    const playerSelection = choice.target.innerText;
+    const computerSelection = getComputerChoice();
+    const result = playRound(playerSelection, computerSelection);
+    console.log(result);
+    console.log(playerSelection, playerScore);
+    console.log(computerSelection, computerScore);
+  })
+);
