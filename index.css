@@ -13,22 +13,38 @@ body {
   background-color: rgb(75, 70, 70);
 }
 
+.content {
+  width: 600px;
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: end;
-  width: 550px;
-  height: 500px;
-  max-width: 700px;
+  width: 100%;
+  height: 90%;
+  margin-top: 10px;
   background-color: antiquewhite;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
+.btn-wrapper {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  gap: 50px;
+  border-top: 2px solid black;
 
+}
 button {
-  font-size: 40px;
-  flex: 1 1 auto;
-  width: 20%;
-  height: 20%;
+  font-size: 35px;
+  flex: 1 1 auto wrap;
+  width: 100%;
+  height: 80%;
   background-color: rgb(72, 72, 71);
   border: none;
   border-radius: 5px;
@@ -36,6 +52,7 @@ button {
   color: #faf8f8;
   transition: 200ms;
   cursor: pointer;
+  margin: 10px;
 }
 
 button:hover {
@@ -43,13 +60,38 @@ button:hover {
 }
 
 .score-wrapper {
-  height: 30px;
+  width: 100%;
+  height: 10px;
   display: flex;
-  align-items: start;
+  justify-content: center;
+  font-size: 30px;
+  position: relative;
+  top: 65%;
 }
 
-.C-score,
-.P-score{
+.P-score,
+.C-score {
+  flex: 1 1 auto;
   width: 100%;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.P-score::before {
+  content: "Player";
+  margin-right: 10px;
+}
+
+.C-score::before {
+  content: "Computer";
+  margin-right: 20px;
+}
+
+.result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 30px;
+  text-align: center;
 }
